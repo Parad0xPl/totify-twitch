@@ -1,0 +1,16 @@
+[Unit]
+Description=Twitch notification based on totify bridge
+Requires=totify.service
+Wants=basic.target
+
+[Service]
+Type=simple
+ExecStart=/home/totify/twitch/totify-twitch
+Restart=on-failure
+WorkingDirectory=/home/totify/twitch
+User=totify
+Group=totify
+Environment="TWITCH_TOKEN="
+
+[Install]
+WantedBy=multi-user.target
